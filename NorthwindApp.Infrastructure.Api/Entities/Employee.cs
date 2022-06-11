@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NorthwindApp.Infrastructure.Api.Entities
 {
-    public partial class Employee
+    public partial class Employee : BaseEntity
     {
         public Employee()
         {
@@ -14,7 +14,7 @@ namespace NorthwindApp.Infrastructure.Api.Entities
             Orders = new HashSet<Order>();
         }
 
-        public int EmployeeId { get; set; }
+        //public int EmployeeId { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Title { get; set; }

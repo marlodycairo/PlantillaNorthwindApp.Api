@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\" />
-    <Folder Include="Interfaces\" />
+    <Folder Include="DTOs\Category\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace NorthwindApp.Infrastructure.Api.Entities
 {
-    public partial class Territory
+    public partial class Territory : BaseEntity
     {
         public Territory()
         {
             EmployeeTerritories = new HashSet<EmployeeTerritory>();
         }
 
-        public string TerritoryId { get; set; }
+        //public string TerritoryId { get; set; }
         public string TerritoryDescription { get; set; }
         public int RegionId { get; set; }
 

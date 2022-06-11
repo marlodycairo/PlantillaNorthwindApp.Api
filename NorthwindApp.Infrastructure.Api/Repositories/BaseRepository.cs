@@ -1,12 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NorthwindApp.Api.Domain.Interfaces;
 using NorthwindApp.Infrastructure.Api.Context;
 using NorthwindApp.Infrastructure.Api.Entities;
 using NorthwindApp.Infrastructure.Api.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NorthwindApp.Infrastructure.Api.Repositories

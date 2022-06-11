@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace NorthwindApp.Infrastructure.Api.Entities
 {
-    public partial class Category
+    public partial class Category : BaseEntity
     {
         public Category()
         {
             Products = new HashSet<Product>();
         }
 
-        public int CategoryId { get; set; }
+        //public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public string Description { get; set; }
         public byte[] Picture { get; set; }

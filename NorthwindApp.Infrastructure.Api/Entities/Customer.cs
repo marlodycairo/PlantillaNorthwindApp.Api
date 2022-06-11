@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace NorthwindApp.Infrastructure.Api.Entities
 {
-    public partial class Customer
+    public partial class Customer : BaseEntity
     {
         public Customer()
         {
@@ -13,7 +13,7 @@ namespace NorthwindApp.Infrastructure.Api.Entities
             Orders = new HashSet<Order>();
         }
 
-        public string CustomerId { get; set; }
+        //public string CustomerId { get; set; }
         public string CompanyName { get; set; }
         public string ContactName { get; set; }
         public string ContactTitle { get; set; }

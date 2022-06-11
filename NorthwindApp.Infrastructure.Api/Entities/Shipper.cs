@@ -5,14 +5,14 @@ using System.Collections.Generic;
 
 namespace NorthwindApp.Infrastructure.Api.Entities
 {
-    public partial class Shipper
+    public partial class Shipper : BaseEntity
     {
         public Shipper()
         {
             Orders = new HashSet<Order>();
         }
 
-        public int ShipperId { get; set; }
+        //public int ShipperId { get; set; }
         public string CompanyName { get; set; }
         public string Phone { get; set; }
 
