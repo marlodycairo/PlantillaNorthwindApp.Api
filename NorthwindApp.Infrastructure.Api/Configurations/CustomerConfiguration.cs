@@ -16,10 +16,7 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
 
             builder.HasIndex(e => e.Region, "Region");
 
-            builder.Property(e => e.CustomerId)
-                .HasMaxLength(5)
-                .HasColumnName("CustomerID")
-                .IsFixedLength(true);
+            builder.Property(e => e.Id).HasColumnName("CustomerID");
 
             builder.Property(e => e.Address).HasMaxLength(60);
 

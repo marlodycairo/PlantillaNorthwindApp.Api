@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NorthwindApp.Infrastructure.Api.Interfaces
+namespace NorthwindApp.Infrastructure.Api.Repositories.Interfaces
 {
     public interface IRepository<T> where T : BaseEntity
     {

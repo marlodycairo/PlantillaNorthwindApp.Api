@@ -13,20 +13,20 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
     {
         public void Configure(EntityTypeBuilder<OrderDetail> builder)
         {
-            builder.HasKey(e => new { e.OrderId, e.ProductId })
+            builder.HasKey(e => new { e.Id, e.ProductId })
                     .HasName("PK_Order_Details");
 
             builder.ToTable("Order Details");
 
-            builder.HasIndex(e => e.OrderId, "OrderID");
+            builder.HasIndex(e => e.Id, "OrderID");
 
-            builder.HasIndex(e => e.OrderId, "OrdersOrder_Details");
+            builder.HasIndex(e => e.Id, "OrdersOrder_Details");
 
             builder.HasIndex(e => e.ProductId, "ProductID");
 
             builder.HasIndex(e => e.ProductId, "ProductsOrder_Details");
 
-            builder.Property(e => e.OrderId).HasColumnName("OrderID");
+            builder.Property(e => e.Id).HasColumnName("OrderID");
 
             builder.Property(e => e.ProductId).HasColumnName("ProductID");
 
@@ -36,7 +36,7 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
 
             builder.HasOne(d => d.Order)
                 .WithMany(p => p.OrderDetails)
-                .HasForeignKey(d => d.OrderId)
+                .HasForeignKey(d => d.Id)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Order_Details_Orders");
 

@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\Category\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\NorthwindApp.Infrastructure.Api\NorthwindApp.Infrastructure.Api.csproj" />
   </ItemGroup>
 
 </Project>

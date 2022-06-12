@@ -17,8 +17,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NorthwindApp.Api.Domain\NorthwindApp.Api.Domain.csproj" />
-  </ItemGroup>
-
 </Project>

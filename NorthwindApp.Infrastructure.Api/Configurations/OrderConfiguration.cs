@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NorthwindApp.Infrastructure.Api.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NorthwindApp.Infrastructure.Api.Configurations
 {
@@ -29,12 +24,9 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
 
             builder.HasIndex(e => e.ShipVia, "ShippersOrders");
 
-            builder.Property(e => e.OrderId).HasColumnName("OrderID");
+            builder.Property(e => e.Id).HasColumnName("OrderID");
 
-            builder.Property(e => e.CustomerId)
-                .HasMaxLength(5)
-                .HasColumnName("CustomerID")
-                .IsFixedLength(true);
+            builder.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
             builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 

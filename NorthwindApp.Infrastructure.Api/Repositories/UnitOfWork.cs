@@ -1,6 +1,6 @@
 ﻿using NorthwindApp.Infrastructure.Api.Context;
 using NorthwindApp.Infrastructure.Api.Entities;
-using NorthwindApp.Infrastructure.Api.Interfaces;
+using NorthwindApp.Infrastructure.Api.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;

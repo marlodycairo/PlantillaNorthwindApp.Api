@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NorthwindApp.Infrastructure.Api.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NorthwindApp.Infrastructure.Api.Configurations
 {
@@ -17,7 +12,7 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
 
             builder.HasIndex(e => e.PostalCode, "PostalCode");
 
-            builder.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
+            builder.Property(e => e.Id).HasColumnName("EmployeeID");
 
             builder.Property(e => e.Address).HasMaxLength(60);
 

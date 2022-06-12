@@ -8,7 +8,7 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
     {
         public void Configure(EntityTypeBuilder<Shipper> builder)
         {
-            builder.Property(e => e.ShipperId).HasColumnName("ShipperID");
+            builder.Property(e => e.Id).HasColumnName("ShipperID");
 
             builder.Property(e => e.CompanyName)
                 .IsRequired()

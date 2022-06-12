@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NorthwindApp.Infrastructure.Api.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NorthwindApp.Infrastructure.Api.Configurations
 {
@@ -15,7 +10,7 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
         {
             builder.HasIndex(e => e.CategoryName, "CategoryName");
 
-            builder.Property(e => e.CategoryId).HasColumnName("CategoryID");
+            builder.Property(e => e.Id).HasColumnName("CategoryID");
 
             builder.Property(e => e.CategoryName)
                 .IsRequired()

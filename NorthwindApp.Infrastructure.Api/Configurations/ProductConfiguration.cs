@@ -23,7 +23,7 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
 
             builder.HasIndex(e => e.SupplierId, "SuppliersProducts");
 
-            builder.Property(e => e.ProductId).HasColumnName("ProductID");
+            builder.Property(e => e.Id).HasColumnName("ProductID");
 
             builder.Property(e => e.CategoryId).HasColumnName("CategoryID");
 

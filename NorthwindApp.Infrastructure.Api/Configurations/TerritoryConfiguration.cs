@@ -13,10 +13,10 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
     {
         public void Configure(EntityTypeBuilder<Territory> builder)
         {
-            builder.HasKey(e => e.TerritoryId)
+            builder.HasKey(e => e.Id)
                     .IsClustered(false);
 
-            builder.Property(e => e.TerritoryId)
+            builder.Property(e => e.Id)
                 .HasMaxLength(20)
                 .HasColumnName("TerritoryID");
 

@@ -8,12 +8,12 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
     {
         public void Configure(EntityTypeBuilder<Region> builder)
         {
-            builder.HasKey(e => e.RegionId)
+            builder.HasKey(e => e.Id)
                     .IsClustered(false);
 
             builder.ToTable("Region");
 
-            builder.Property(e => e.RegionId)
+            builder.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("RegionID");
 

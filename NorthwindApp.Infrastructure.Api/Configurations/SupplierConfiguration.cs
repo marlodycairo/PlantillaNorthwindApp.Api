@@ -17,7 +17,7 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
 
             builder.HasIndex(e => e.PostalCode, "PostalCode");
 
-            builder.Property(e => e.SupplierId).HasColumnName("SupplierID");
+            builder.Property(e => e.Id).HasColumnName("SupplierID");
 
             builder.Property(e => e.Address).HasMaxLength(60);
 
