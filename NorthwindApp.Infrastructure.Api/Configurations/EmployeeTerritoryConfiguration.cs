@@ -17,11 +17,11 @@ namespace NorthwindApp.Infrastructure.Api.Configurations
                 .HasMaxLength(20)
                 .HasColumnName("TerritoryID");
 
-            builder.HasOne(d => d.Employee)
-                .WithMany(p => p.EmployeeTerritories)
-                .HasForeignKey(d => d.EmployeeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_EmployeeTerritories_Employees");
+            //builder.HasOne(d => d.Employee)
+            //    .WithMany(p => p.EmployeeTerritories)
+            //    .HasForeignKey(d => d.EmployeeId)
+            //    .OnDelete(DeleteBehavior.ClientSetNull)
+            //    .HasConstraintName("FK_EmployeeTerritories_Employees");
 
             builder.HasOne(d => d.Territory)
                 .WithMany(p => p.EmployeeTerritories)

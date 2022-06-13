@@ -19,9 +19,9 @@ namespace NorthwindApp.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Employee>> GetEmployees()
+        public async Task<ActionResult<Employee>> GetEmployees()
         {
-            return await _employeeService.GetAllEmployees();
+            return Ok(await _employeeService.GetAllEmployees());
         }
 
         [HttpGet("{id}")]

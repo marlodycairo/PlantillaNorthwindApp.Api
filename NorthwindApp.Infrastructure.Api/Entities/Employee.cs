@@ -9,7 +9,7 @@ namespace NorthwindApp.Infrastructure.Api.Entities
     {
         public Employee()
         {
-            EmployeeTerritories = new HashSet<EmployeeTerritory>();
+            //EmployeeTerritories = new HashSet<EmployeeTerritory>();
             InverseReportsToNavigation = new HashSet<Employee>();
             Orders = new HashSet<Order>();
         }
@@ -34,7 +34,7 @@ namespace NorthwindApp.Infrastructure.Api.Entities
         public string PhotoPath { get; set; }
 
         public virtual Employee ReportsToNavigation { get; set; }
-        public virtual ICollection<EmployeeTerritory> EmployeeTerritories { get; set; }
+        //public virtual ICollection<EmployeeTerritory> EmployeeTerritories { get; set; }
         public virtual ICollection<Employee> InverseReportsToNavigation { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }
