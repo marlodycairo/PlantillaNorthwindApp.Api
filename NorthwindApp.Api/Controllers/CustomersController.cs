@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NorthwindApp.Api.Domain.Interfaces;
 using NorthwindApp.Infrastructure.Api.Entities;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace NorthwindApp.Api.Controllers

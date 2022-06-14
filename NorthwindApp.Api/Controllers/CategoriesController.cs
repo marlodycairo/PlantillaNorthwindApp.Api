@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NorthwindApp.Api.Domain.DTOs;
 using NorthwindApp.Api.Domain.Interfaces;
-using NorthwindApp.Infrastructure.Api.Entities;
-using System.Collections.Generic;
+using NorthwindApp.Api.Payloads;
 using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -21,37 +21,43 @@ namespace NorthwindApp.Api.Controllers
 
         // GET: api/<CategoriesController>
         [HttpGet]
-        public async Task<IEnumerable<Category>> GetAllCategories()
+        public async Task<ActionResult> GetAllCategories()
         {
-            return await _categoryService.GetAllCategories();
+            return Ok(await _categoryService.GetAllCategories());
         }
 
         // GET api/<CategoriesController>/5
         [HttpGet("{id}")]
-        public async Task<Category> GetCategory(int id)
+        public async Task<ActionResult> GetCategory(int id)
         {
-            return await _categoryService.GetCategoryById(id);
+            return Ok(await _categoryService.GetCategoryById(id));
         }
 
         // POST api/<CategoriesController>
         [HttpPost]
-        public async Task CreateCategory([FromBody] Category category)
+        public async Task<ActionResult> CreateCategory([FromBody] CategoryPayload category)
         {
             await _categoryService.CreateCategory(category);
+
+            return Ok();
         }
 
         // PUT api/<CategoriesController>/5
         [HttpPut("{id}")]
-        public async Task UpdateCategory([FromBody] Category category)
+        public async Task<ActionResult> UpdateCategory([FromBody] CategoryDto category)
         {
             await _categoryService.UpdateCategory(category);
+
+            return Ok();
         }
 
         // DELETE api/<CategoriesController>/5
         [HttpDelete("{id}")]
-        public async Task DeleteCategory(int id)
+        public async Task<ActionResult> DeleteCategory(int id)
         {
             await _categoryService.DeleteCategory(id);
+
+            return Ok();
         }
     }
 }

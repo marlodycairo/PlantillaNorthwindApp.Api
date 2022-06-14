@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,10 +7,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NorthwindApp.Api.Domain.Interfaces;
+using NorthwindApp.Api.Domain.Mappers;
 using NorthwindApp.Api.Domain.Services;
 using NorthwindApp.Infrastructure.Api.Context;
+using NorthwindApp.Infrastructure.Api.Filters;
 using NorthwindApp.Infrastructure.Api.Repositories;
 using NorthwindApp.Infrastructure.Api.Repositories.Interfaces;
+using System;
+using System.Text.Json.Serialization;
 
 namespace NorthwindApp.Api
 {
@@ -25,6 +30,24 @@ namespace NorthwindApp.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddAutoMapper(typeof(Startup), typeof(AutomapperProfile));
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            //services.AddMvc(options => options.Filters.Add<ValidationFilter>())
+            //    .AddFluentValidation(options =>
+            //        options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
+
+            //services.AddControllers();
+            services.AddControllers(options =>
+            {
+                options.Filters.Add<ValidationFilter>();
+            }).AddFluentValidation(options =>
+            {
+                options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+            })
+                .AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+
             services.AddDbContext<NorthwindContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ConnectionDB")));
 
@@ -41,12 +64,12 @@ namespace NorthwindApp.Api
             services.AddScoped<ISupplierService, SupplierService>();
             services.AddScoped<ITerritoryService, TerritoryService>();
 
-            services.AddControllers();
+            
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NorthwindApp.Api", Version = "v1" });
             });
-
 
         }
 

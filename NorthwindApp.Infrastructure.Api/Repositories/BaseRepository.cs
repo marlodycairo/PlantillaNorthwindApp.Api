@@ -43,9 +43,9 @@ namespace NorthwindApp.Infrastructure.Api.Repositories
 
         public async Task Update(T entity)
         {
-            var entityById = await GetById(entity.Id);
+            //var entityById = await GetById(entity.Id);
 
-            _entities.Update(entityById);
+            _entities.Update(entity);
         }
     }
 }
