@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NorthwindApp.Api.Domain.Interfaces;
 using NorthwindApp.Infrastructure.Api.Entities;
@@ -17,7 +17,7 @@ namespace NorthwindApp.Api.Controllers
         {
             _orderService = orderService;
         }
-
+ 
         [HttpGet]
         public async Task<IEnumerable<Order>> GetOrders()
         {

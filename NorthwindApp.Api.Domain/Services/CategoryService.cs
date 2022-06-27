@@ -38,29 +38,29 @@ namespace NorthwindApp.Api.Domain.Services
             await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<CategoryDto>> GetAllCategories()
+        public async Task<IEnumerable<Category>> GetAllCategories()
         {
-            var lstCategories = await _unitOfWork.CategoryRepository.GetAll();
+            return await _unitOfWork.CategoryRepository.GetAll();
 
-            var lst = _mapper.Map<IEnumerable<CategoryDto>>(lstCategories);
+            //var lst = _mapper.Map<IEnumerable<CategoryDto>>(lstCategories);
 
-            return lst.ToList();
+            //return lst.ToList();
         }
 
-        public async Task<CategoryDto> GetCategoryById(int id)
+        public async Task<Category> GetCategoryById(int id)
         {
-            var obCategory = await _unitOfWork.CategoryRepository.GetById(id);
+            return await _unitOfWork.CategoryRepository.GetById(id);
 
-            var category = _mapper.Map<CategoryDto>(obCategory);
+            //var category = _mapper.Map<CategoryDto>(obCategory);
 
-            return category;
+            //return category;
         }
 
-        public async Task UpdateCategory(CategoryDto category)
+        public async Task UpdateCategory(Category category)
         {
-            var obCategory = _mapper.Map<Category>(category);
+            //var obCategory = _mapper.Map<Category>(category);
 
-            await _unitOfWork.CategoryRepository.Update(obCategory);
+            await _unitOfWork.CategoryRepository.Update(category);
 
             await _unitOfWork.SaveChangesAsync();
         }

@@ -21,11 +21,15 @@ namespace NorthwindApp.Api.Domain.Services
         public async Task CreateCustomer(Customer customer)
         {
             await _unitOfWork.CustomerRepository.Add(customer);
+
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task DeleteCustomer(int id)
         {
             await _unitOfWork.CustomerRepository.Delete(id);
+
+            await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Customer>> GetAllCustomers()
@@ -41,6 +45,8 @@ namespace NorthwindApp.Api.Domain.Services
         public async Task UpdateCustomer(Customer customer)
         {
             await _unitOfWork.CustomerRepository.Update(customer);
+
+            await _unitOfWork.SaveChangesAsync();
         }
     }
 }

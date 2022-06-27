@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NorthwindApp.Api.Domain.Interfaces;
 using NorthwindApp.Infrastructure.Api.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace NorthwindApp.Api.Controllers
@@ -17,34 +18,41 @@ namespace NorthwindApp.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetCustomers()
+        public async Task<ActionResult<List<Customer>>> GetCustomers()
         {
-            return Ok(await _customerService.GetAllCustomers());
+            var customers = await _customerService.GetAllCustomers();
+
+            return Ok(customers);
         }
 
         [HttpGet("{id}")]
-        public async Task<Customer> GetCustomer(int id)
+        public async Task<ActionResult> GetCustomer(int id)
         {
-            return await _customerService.GetCustomerById(id);
+            return Ok(await _customerService.GetCustomerById(id));
         }
 
         [HttpPost]
-        public async Task CreateCustomer([FromBody] Customer customer)
+        public async Task<ActionResult> CreateCustomer([FromBody] Customer customer)
         {
             await _customerService.CreateCustomer(customer);
+
+            return Ok();
         }
 
         [HttpPut("{id}")]
-        public async Task UpdateCustomer([FromBody] Customer customer)
+        public async Task<ActionResult> UpdateCustomer([FromBody] Customer customer)
         {
             await _customerService.UpdateCustomer(customer);
+
+            return Ok();
         }
 
-        // DELETE
         [HttpDelete("{id}")]
-        public async Task DeleteCustomer(int id)
+        public async Task<ActionResult> DeleteCustomer(int id)
         {
             await _customerService.DeleteCustomer(id);
+
+            return Ok();
         }
     }
 }

@@ -8,10 +8,10 @@ namespace NorthwindApp.Api.Domain.Interfaces
 {
     public interface ICategoryService
     {
-        Task<IEnumerable<CategoryDto>> GetAllCategories();
-        Task<CategoryDto> GetCategoryById(int id);
+        Task<IEnumerable<Category>> GetAllCategories();
+        Task<Category> GetCategoryById(int id);
         Task CreateCategory(CategoryPayload category);
-        Task UpdateCategory(CategoryDto category);
+        Task UpdateCategory(Category category);
         Task DeleteCategory(int id);
     }
 }
